@@ -1,0 +1,62 @@
+{
+    "predictions": [
+        {
+            "student_id": "S101",
+            "will_complete": 0,
+            "completion_probability": 0.094
+        },
+        {
+            "student_id": "S102",
+            "will_complete": 1,
+            "completion_probability": 0.997
+        },
+        {
+            "student_id": "S103",
+            "will_complete": 0,
+            "completion_probability": 0.003
+        }
+    ],
+    "risk_flags": [
+        {
+            "student_id": "S101",
+            "risk_level": "HIGH"
+        },
+        {
+            "student_id": "S102",
+            "risk_level": "LOW"
+        },
+        {
+            "student_id": "S103",
+            "risk_level": "HIGH"
+        }
+    ],
+    "chapter_difficulty": [
+        {
+            "chapter": 3,
+            "difficulty_score": 0.87,
+            "avg_time": 50.0,
+            "avg_score": 65.0,
+            "dropout_rate": 1.0
+        },
+        {
+            "chapter": 1,
+            "difficulty_score": 0.4933333333333333,
+            "avg_time": 36.666666666666664,
+            "avg_score": 66.66666666666667,
+            "dropout_rate": 0.3333333333333333
+        },
+        {
+            "chapter": 2,
+            "difficulty_score": 0.31,
+            "avg_time": 32.5,
+            "avg_score": 75.0,
+            "dropout_rate": 0.0
+        }
+    ],
+    "insights": [
+        "Student S101 is at HIGH risk of dropping out and requires early intervention.",
+        "Student S103 is at HIGH risk of dropping out and requires early intervention.",
+        "Chapter 3 is the most difficult chapter with a dropout rate of 100% and average score of 65.0.",
+        "Overall course completion probability across students is 0.36."
+    ]
+}
