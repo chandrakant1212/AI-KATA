@@ -1,9 +1,13 @@
-# Python cache
+# Python
 __pycache__/
 *.pyc
-
-# Virtual environment
 venv/
 
 # VS Code temp files
 .tempCodeRunnerFile.py
+
+# Environment files
+.env
+
+# Node (safe to keep even if unused)
+node_modules/
