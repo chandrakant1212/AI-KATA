@@ -1,5 +1,16 @@
 # AI Kata – Learning Intelligence CLI Tool
 
+## 🚀 Live Demo
+
+🔗 Live Application: https://ai-kata.onrender.com/
+
+Features available:
+- CSV upload
+- Course completion prediction
+- Early dropout risk detection
+- Chapter difficulty analysis
+- Interactive charts & AI insights
+
 ## Overview
 This project is an AI-powered Learning Intelligence tool designed for internship or training platforms.
 It analyzes learner behavior data and provides intelligent predictions and insights for mentors and administrators.
