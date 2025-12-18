@@ -67,7 +67,7 @@ The tool accepts a CSV file containing learner activity data with the following 
 Example:
 ```csv
 S101,C01,1,30,75,1
-
+```
 ## AI Usage Disclosure
 
 AI assistance (ChatGPT) was used for:
