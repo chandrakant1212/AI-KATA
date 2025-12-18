@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Learning Intelligence Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<h1>📊 AI Learning Intelligence Dashboard</h1>
+
+<form id="uploadForm">
+    <input type="file" id="fileInput" required />
+    <button type="submit">Analyze</button>
+</form>
+
+<div class="card">
+    <h2>🎯 Course Completion Probability</h2>
+    <canvas id="completionChart"></canvas>
+</div>
+
+<div class="card">
+    <h2>📘 Chapter Difficulty</h2>
+    <canvas id="chapterChart"></canvas>
+</div>
+
+<div class="card">
+    <h2>🧠 AI Insights</h2>
+    <ul id="insights"></ul>
+</div>
+
+<script>
+document.getElementById("uploadForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+    const file = document.getElementById("fileInput").files[0];
+
+    const formData = new FormData();
+    formData.append("file", file);
+
+    const res = await fetch("/analyze-ui", { method: "POST", body: formData });
+    const data = await res.json();
+
+    // Completion Chart
+    new Chart(document.getElementById("completionChart"), {
+        type: "bar",
+        data: {
+            labels: data.predictions.map(p => p.student_id),
+            datasets: [{
+                label: "Completion Probability",
+                data: data.predictions.map(p => p.completion_probability)
+            }]
+        }
+    });
+
+    // Chapter Difficulty Chart
+    new Chart(document.getElementById("chapterChart"), {
+        type: "bar",
+        data: {
+            labels: data.chapter_difficulty.map(c => "Chapter " + c.chapter),
+            datasets: [{
+                label: "Difficulty Score",
+                data: data.chapter_difficulty.map(c => c.difficulty_score)
+            }]
+        }
+    });
+datasets: [{
+  label: "Completion Probability",
+  data: data.predictions.map(p => p.completion_probability),
+  backgroundColor: "#4CAF50"
+}]
+datasets: [{
+  label: "Difficulty Score",
+  data: data.chapter_difficulty.map(c => c.difficulty_score),
+  backgroundColor: "#FF7043"
+}]
+
+    // Insights
+    const insightsList = document.getElementById("insights");
+    insightsList.innerHTML = "";
+    data.insights.forEach(i => {
+        const li = document.createElement("li");
+        li.textContent = i;
+        insightsList.appendChild(li);
+    });
+});
+</script>
+
+</body>
+</html>
